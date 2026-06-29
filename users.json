@@ -1,0 +1,31 @@
+{
+  "version": 1,
+  "type": "school-timetable-users",
+  "updatedAt": "2026-06-29T00:00:00.000Z",
+  "users": [
+    {
+      "id": "u1",
+      "username": "admin",
+      "password": "admin123",
+      "name": "Администратор",
+      "role": "admin",
+      "active": true
+    },
+    {
+      "id": "u0",
+      "username": "deputy",
+      "password": "deputy123",
+      "name": "Завуч",
+      "role": "deputy",
+      "active": true
+    },
+    {
+      "id": "u2",
+      "username": "teacher",
+      "password": "teacher123",
+      "name": "Учитель",
+      "role": "teacher",
+      "active": true
+    }
+  ]
+}

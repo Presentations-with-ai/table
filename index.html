@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Расписание</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="public-view">
+  <section id="authScreen" class="auth-screen hidden">
+    <div class="auth-card">
+      <div class="auth-logo">Р</div>
+      <h1>Вход</h1>
+      <form id="loginForm" class="auth-form">
+        <div class="field">
+          <label>Логин</label>
+          <input id="loginUsername" autocomplete="username" required />
+        </div>
+        <div class="field">
+          <label>Пароль</label>
+          <input id="loginPassword" type="password" autocomplete="current-password" required />
+        </div>
+        <button class="primary full" type="submit">Войти</button>
+        <button id="closeAuthBtn" class="ghost full" type="button">Вернуться к расписанию</button>
+      </form>
+    </div>
+  </section>
+
+  <header class="topbar">
+    <div class="brand">
+      <div class="brand-mark">Р</div>
+      <div>
+        <b id="brandTitle">Расписание</b>
+        <span id="brandSubtitle">школа</span>
+      </div>
+    </div>
+    <nav class="main-nav">
+      <button class="nav-btn active" data-panel="schedulePanel">Расписание</button>
+      <button class="nav-btn admin-only" data-panel="dataPanel">Сборка</button>
+      <button class="nav-btn admin-only" data-panel="autoPanel">Авторасписание</button>
+      <button class="nav-btn admin-only" data-panel="settingsPanel">Настройки</button>
+    </nav>
+    <div class="user-box">
+      <button id="openLoginBtn" class="logout-btn">Войти для завуча / админа</button>
+      <span id="currentUserLabel">Просмотр расписания</span>
+      <button id="editModeBtn" class="logout-btn hidden" type="button">Редактировать</button>
+      <button id="logoutBtn" class="logout-btn hidden">Выйти</button>
+    </div>
+  </header>
+
+  <main>
+    <section id="schedulePanel" class="panel active-panel">
+      <div class="toolbar">
+        <div class="field grow school-field">
+          <label>Школа</label>
+          <input id="schoolName" readonly />
+        </div>
+        <div class="field mode-field">
+          <label>Режим просмотра</label>
+          <select id="viewMode">
+            <option value="group">Класс</option>
+            <option value="teacher">Учитель</option>
+            <option value="room">Кабинет</option>
+          </select>
+        </div>
+        <div class="field">
+          <label id="targetLabel">Класс</label>
+          <select id="targetSelect"></select>
+        </div>
+        <div class="field">
+          <label>Учебный период</label>
+          <input id="periodName" />
+        </div>
+        <button id="printBtn" class="primary small">Печать / PDF</button>
+      </div>
+
+      <div class="tabs">
+        <button class="tab active" data-view="group"><span class="tab-text">Классы</span></button>
+        <button class="tab" data-view="teacher"><span class="tab-text">Учителя</span></button>
+        <button class="tab" data-view="room"><span class="tab-text">Кабинеты</span></button>
+      </div>
+
+      <div class="schedule-card">
+        <div class="schedule-head">
+          <div>
+            <p id="subTitle">Расписание</p>
+            <h1 id="scheduleTitle">Расписание</h1>
+          </div>
+          <div class="head-actions">
+            <button id="addLessonBtn" class="primary admin-only">+ Добавить урок</button>
+            <button id="clearTargetBtn" class="ghost admin-only">Очистить расписание</button>
+          </div>
+        </div>
+
+        <div class="grid-wrap">
+          <table id="scheduleTable" class="schedule-table"></table>
+        </div>
+
+        <div class="legend">
+          <span><i class="dot normal"></i> Урок</span>
+          <span><i class="dot control"></i> Контрольная</span>
+          <span><i class="dot lab"></i> Лабораторная</span>
+          <span><i class="dot classhour"></i> Классный час</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="dataPanel" class="panel admin-only">
+      <div class="data-layout">
+        <aside class="data-sidebar">
+          <button class="data-tab active" data-list="groups">Классы</button>
+          <button class="data-tab" data-list="teachers">Учителя</button>
+          <button class="data-tab" data-list="rooms">Кабинеты</button>
+          <button class="data-tab" data-list="subjects">Предметы</button>
+        </aside>
+        <div class="data-content">
+          <div class="section-title">
+            <div>
+              <h2 id="dataTitle">Классы</h2>
+
+            </div>
+            <button id="addItemBtn" class="primary">+ Добавить</button>
+          </div>
+          <div id="dataList" class="item-grid"></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="autoPanel" class="panel admin-only">
+      <div class="auto-layout">
+        <div class="settings-card wide-card">
+          <div class="section-title">
+            <div>
+              <h2>Автоматическое расписание</h2>
+
+            </div>
+            <button id="generateAutoBtn" class="primary">⚡ Сгенерировать</button>
+          </div>
+
+          <div class="auto-controls">
+            <div class="field">
+              <label>Максимум уроков в день для класса</label>
+              <input id="autoMaxPerDay" type="number" min="1" max="12" value="6" />
+            </div>
+            <label class="check-line auto-check">
+              <input id="autoClearBefore" type="checkbox" checked />
+              <span>Очистить старое расписание перед генерацией</span>
+            </label>
+            <label class="check-line auto-check">
+              <input id="autoJuniorEarly" type="checkbox" checked />
+              <span>1–4 классы не ставить после 5 урока</span>
+            </label>
+          </div>
+
+          <div id="autoSummary" class="auto-summary"></div>
+          <div id="autoStatus" class="status-line">Готов к генерации.</div>
+        </div>
+
+        <div class="settings-card wide-card">
+          <div class="section-title">
+            <div>
+              <h2>Нагрузка для генерации</h2>
+
+            </div>
+            <div class="head-actions">
+              <button id="buildAutoRulesBtn" class="ghost">Создать нагрузку из данных</button>
+              <button id="addAutoRuleBtn" class="primary">+ Добавить строку</button>
+            </div>
+          </div>
+          <div class="auto-table-wrap">
+            <table class="auto-table">
+              <thead>
+                <tr>
+                  <th>Класс</th>
+                  <th>Предмет</th>
+                  <th>Учитель</th>
+                  <th>Кабинет</th>
+                  <th>Раз/нед.</th>
+                  <th>Тип</th>
+                  <th></th>
+                </tr>
+              </thead>
+              <tbody id="autoRulesBody"></tbody>
+            </table>
+          </div>
+          <div class="backup-actions">
+            <button id="clearAutoRulesBtn" class="danger">Очистить нагрузку</button>
+            <button id="clearAutoLessonsBtn" class="ghost">Удалить только авто-уроки</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="settingsPanel" class="panel admin-only">
+      <div class="settings-grid">
+        <div class="settings-card">
+          <h2>Время уроков</h2>
+
+          <div id="slotsEditor" class="slots-editor"></div>
+          <button id="addSlotBtn" class="ghost full">+ Добавить урок</button>
+        </div>
+        <div class="settings-card wide-card">
+          <h2>Файлы</h2>
+          <div class="backup-actions">
+            <button id="downloadDbBtn" class="primary">Скачать расписание</button>
+            <button id="downloadUsersBtn" class="primary alt">Скачать доступ</button>
+            <button id="downloadAllBtn" class="ghost">Скачать всё</button>
+            <label class="file-btn">
+              Загрузить расписание
+              <input id="importInput" type="file" accept="application/json" hidden />
+            </label>
+            <label class="file-btn">
+              Загрузить доступ
+              <input id="importUsersInput" type="file" accept="application/json" hidden />
+            </label>
+            <button id="reloadGithubBtn" class="ghost">Обновить</button>
+            <button id="clearAllDataBtn" class="danger">Очистить всё</button>
+          </div>
+        </div>
+
+        <div class="settings-card wide-card">
+          <h2>Доступ</h2>
+          <div id="usersList" class="users-list"></div>
+          <button id="addUserBtn" class="ghost full">+ Добавить пользователя</button>
+        </div>
+      </div>
+    </section>
+
+  <dialog id="lessonDialog" class="modal">
+    <form method="dialog" id="lessonForm" class="modal-card">
+      <div class="modal-head">
+        <h2 id="lessonModalTitle">Урок</h2>
+        <button type="button" class="icon-btn" data-close="lessonDialog">×</button>
+      </div>
+      <input id="lessonId" type="hidden" />
+      <div class="form-grid">
+        <div class="field">
+          <label>День</label>
+          <select id="lessonDay" required></select>
+        </div>
+        <div class="field">
+          <label>Урок</label>
+          <select id="lessonSlot" required></select>
+        </div>
+        <div class="field">
+          <label>Класс</label>
+          <select id="lessonGroup" multiple required></select>
+        </div>
+        <div class="field">
+          <label>Предмет</label>
+          <select id="lessonSubject" required></select>
+        </div>
+        <div class="field">
+          <label>Учитель</label>
+          <select id="lessonTeacher" multiple required></select>
+        </div>
+        <div class="field">
+          <label>Кабинет</label>
+          <select id="lessonRoom" multiple required></select>
+        </div>
+        <div class="field">
+          <label>Тип</label>
+          <select id="lessonType">
+            <option value="normal">Обычный урок</option>
+            <option value="control">Контрольная</option>
+            <option value="lab">Лабораторная</option>
+            <option value="classhour">Классный час</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Подгруппа / заметка</label>
+          <input id="lessonNote" placeholder="Например: подгруппа 1, тема, замена" />
+        </div>
+      </div>
+      <div id="conflictBox" class="conflict-box hidden"></div>
+      <div class="modal-actions">
+        <button type="button" id="deleteLessonBtn" class="danger hidden">Удалить</button>
+        <span class="spacer"></span>
+        <button type="button" class="ghost" data-close="lessonDialog">Отмена</button>
+        <button class="primary" value="save">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="itemDialog" class="modal">
+    <form method="dialog" id="itemForm" class="modal-card small-card">
+      <div class="modal-head">
+        <h2 id="itemModalTitle">Добавить</h2>
+        <button type="button" class="icon-btn" data-close="itemDialog">×</button>
+      </div>
+      <input id="itemType" type="hidden" />
+      <input id="itemId" type="hidden" />
+      <div class="field">
+        <label id="itemNameLabel">Название</label>
+        <input id="itemName" required />
+      </div>
+      <div class="field optional-field" id="itemExtraWrap">
+        <label id="itemExtraLabel">Описание</label>
+        <input id="itemExtra" />
+      </div>
+      <div class="field optional-field hidden" id="itemTeacherWrap">
+        <label>Учитель предмета</label>
+        <select id="itemTeacher"></select>
+      </div>
+      <div class="modal-actions">
+        <button type="button" id="deleteItemBtn" class="danger hidden">Удалить</button>
+        <span class="spacer"></span>
+        <button type="button" class="ghost" data-close="itemDialog">Отмена</button>
+        <button class="primary" value="save">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <dialog id="userDialog" class="modal">
+    <form method="dialog" id="userForm" class="modal-card small-card">
+      <div class="modal-head">
+        <h2 id="userModalTitle">Пользователь</h2>
+        <button type="button" class="icon-btn" data-close="userDialog">×</button>
+      </div>
+      <input id="userId" type="hidden" />
+      <div class="field">
+        <label>Логин</label>
+        <input id="userLogin" autocomplete="off" required />
+      </div>
+      <div class="field">
+        <label>Пароль</label>
+        <input id="userPassword" autocomplete="new-password" required />
+      </div>
+      <div class="field">
+        <label>Имя</label>
+        <input id="userName" autocomplete="off" placeholder="Например: Завуч" />
+      </div>
+      <div class="field">
+        <label>Роль</label>
+        <select id="userRole">
+          <option value="admin">admin</option>
+          <option value="deputy">deputy / завуч</option>
+          <option value="teacher">teacher</option>
+          <option value="viewer">viewer</option>
+        </select>
+      </div>
+      <label class="check-line">
+        <input id="userActive" type="checkbox" checked />
+        <span>Разрешён вход</span>
+      </label>
+      <div class="modal-actions">
+        <button type="button" id="deleteUserBtn" class="danger hidden">Удалить</button>
+        <span class="spacer"></span>
+        <button type="button" class="ghost" data-close="userDialog">Отмена</button>
+        <button class="primary" value="save">Сохранить</button>
+      </div>
+    </form>
+  </dialog>
+
+  <div id="toast" class="toast"></div>
+  <script src="config.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
