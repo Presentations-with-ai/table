@@ -1,0 +1,609 @@
+{
+  "version": 82,
+  "type": "school-timetable",
+  "updatedAt": "2026-06-29T17:28:16.817Z",
+  "updatedBy": "admin",
+  "schoolName": "Школа №94",
+  "periodName": "2026-2027",
+  "data": {
+    "schoolName": "Школа №94",
+    "periodName": "2026-2027",
+    "viewMode": "group",
+    "selected": {
+      "group": "gmqzgocj72hs2f",
+      "teacher": "tmqzgo72iw7ts2",
+      "room": "rmqzgkgebabzhu"
+    },
+    "days": [
+      {
+        "id": "mon",
+        "short": "Пн",
+        "name": "Понедельник"
+      },
+      {
+        "id": "tue",
+        "short": "Вт",
+        "name": "Вторник"
+      },
+      {
+        "id": "wed",
+        "short": "Ср",
+        "name": "Среда"
+      },
+      {
+        "id": "thu",
+        "short": "Чт",
+        "name": "Четверг"
+      },
+      {
+        "id": "fri",
+        "short": "Пт",
+        "name": "Пятница"
+      },
+      {
+        "id": "sat",
+        "short": "Сб",
+        "name": "Суббота"
+      }
+    ],
+    "slots": [
+      {
+        "id": "s1",
+        "title": "1",
+        "start": "08:00",
+        "end": "08:45"
+      },
+      {
+        "id": "s2",
+        "title": "2",
+        "start": "08:55",
+        "end": "09:40"
+      },
+      {
+        "id": "s3",
+        "title": "3",
+        "start": "09:50",
+        "end": "10:35"
+      },
+      {
+        "id": "s4",
+        "title": "4",
+        "start": "10:55",
+        "end": "11:40"
+      },
+      {
+        "id": "s5",
+        "title": "5",
+        "start": "11:50",
+        "end": "12:35"
+      },
+      {
+        "id": "s6",
+        "title": "6",
+        "start": "12:45",
+        "end": "13:30"
+      },
+      {
+        "id": "s7",
+        "title": "7",
+        "start": "13:40",
+        "end": "14:25"
+      }
+    ],
+    "groups": [
+      {
+        "id": "gmqzgocj72hs2f",
+        "name": "1-А класс",
+        "extra": "Начальная школа"
+      },
+      {
+        "id": "gmqzgoppum91ul",
+        "name": "1-Б класс",
+        "extra": "Начальная школа"
+      },
+      {
+        "id": "gmqzgozgquufkl",
+        "name": "2-А класс",
+        "extra": "Начальная школа"
+      },
+      {
+        "id": "gmqzgp6eay7zls",
+        "name": "2-Б класс",
+        "extra": "Начальная школа"
+      }
+    ],
+    "teachers": [
+      {
+        "id": "tmqzglbkihi72g",
+        "name": "Марина Сергеевна",
+        "extra": "Русский язык"
+      },
+      {
+        "id": "tmqzgm6z6agefk",
+        "name": "Игорь Сергеевич",
+        "extra": "Математика"
+      },
+      {
+        "id": "tmqzgmxxmtrc2s",
+        "name": "Анна Васильевна",
+        "extra": "Чтение"
+      },
+      {
+        "id": "tmqzgo72iw7ts2",
+        "name": "Данара Камиловна",
+        "extra": "Английский язык"
+      }
+    ],
+    "rooms": [
+      {
+        "id": "rmqzgkgebabzhu",
+        "name": "1-01",
+        "extra": ""
+      },
+      {
+        "id": "rmqzgkkoisn9xt",
+        "name": "1-02",
+        "extra": ""
+      },
+      {
+        "id": "rmqzgko167akm6",
+        "name": "2-01",
+        "extra": ""
+      },
+      {
+        "id": "rmqzgkrkac6v9n",
+        "name": "2-02",
+        "extra": ""
+      }
+    ],
+    "subjects": [
+      {
+        "id": "smqzgho3u160mn",
+        "name": "Математика",
+        "extra": "Предмет",
+        "color": "#BDE0FE"
+      },
+      {
+        "id": "smqzghzs20e2v6",
+        "name": "Русский язык",
+        "extra": "Предмет",
+        "color": "#FFEE93"
+      },
+      {
+        "id": "smqzgiw42ucano",
+        "name": "Английский язык",
+        "extra": "Предмет",
+        "color": "#FFC8DD"
+      },
+      {
+        "id": "smqzgjdwqbe1ig",
+        "name": "Чтение",
+        "extra": "Предмет",
+        "color": "#CAFFBF"
+      }
+    ],
+    "lessons": [
+      {
+        "id": "lmqzgr2a2yl3s3",
+        "day": "mon",
+        "slot": "s1",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgm6z6agefk"
+        ],
+        "roomIds": [
+          "rmqzgkgebabzhu"
+        ],
+        "subjectIds": [
+          "smqzgho3u160mn"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgho3u160mn",
+        "teacherId": "tmqzgm6z6agefk",
+        "roomId": "rmqzgkgebabzhu",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzgrbz79tvo9",
+        "day": "mon",
+        "slot": "s2",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzglbkihi72g"
+        ],
+        "roomIds": [
+          "rmqzgkkoisn9xt"
+        ],
+        "subjectIds": [
+          "smqzghzs20e2v6"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzghzs20e2v6",
+        "teacherId": "tmqzglbkihi72g",
+        "roomId": "rmqzgkkoisn9xt",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzgrs5u9dm2l",
+        "day": "mon",
+        "slot": "s3",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgmxxmtrc2s"
+        ],
+        "roomIds": [
+          "rmqzgkgebabzhu"
+        ],
+        "subjectIds": [
+          "smqzgjdwqbe1ig"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgjdwqbe1ig",
+        "teacherId": "tmqzgmxxmtrc2s",
+        "roomId": "rmqzgkgebabzhu",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhfjqqmdlcn",
+        "day": "tue",
+        "slot": "s1",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzglbkihi72g"
+        ],
+        "roomIds": [
+          "rmqzgkkoisn9xt"
+        ],
+        "subjectIds": [
+          "smqzghzs20e2v6"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzghzs20e2v6",
+        "teacherId": "tmqzglbkihi72g",
+        "roomId": "rmqzgkkoisn9xt",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhg6i1rint3",
+        "day": "tue",
+        "slot": "s2",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgo72iw7ts2"
+        ],
+        "roomIds": [
+          "rmqzgkkoisn9xt"
+        ],
+        "subjectIds": [
+          "smqzgiw42ucano"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgiw42ucano",
+        "teacherId": "tmqzgo72iw7ts2",
+        "roomId": "rmqzgkkoisn9xt",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhgknl2ks4k",
+        "day": "tue",
+        "slot": "s3",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgm6z6agefk"
+        ],
+        "roomIds": [
+          "rmqzgkkoisn9xt"
+        ],
+        "subjectIds": [
+          "smqzgho3u160mn"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgho3u160mn",
+        "teacherId": "tmqzgm6z6agefk",
+        "roomId": "rmqzgkkoisn9xt",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhgtbltp0y2",
+        "day": "tue",
+        "slot": "s4",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgmxxmtrc2s"
+        ],
+        "roomIds": [
+          "rmqzgkgebabzhu"
+        ],
+        "subjectIds": [
+          "smqzgjdwqbe1ig"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgjdwqbe1ig",
+        "teacherId": "tmqzgmxxmtrc2s",
+        "roomId": "rmqzgkgebabzhu",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhhildwdvoy",
+        "day": "wed",
+        "slot": "s1",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgmxxmtrc2s"
+        ],
+        "roomIds": [
+          "rmqzgkgebabzhu"
+        ],
+        "subjectIds": [
+          "smqzgjdwqbe1ig"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgjdwqbe1ig",
+        "teacherId": "tmqzgmxxmtrc2s",
+        "roomId": "rmqzgkgebabzhu",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhhtuankdje",
+        "day": "wed",
+        "slot": "s2",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgm6z6agefk"
+        ],
+        "roomIds": [
+          "rmqzgkgebabzhu"
+        ],
+        "subjectIds": [
+          "smqzgho3u160mn"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgho3u160mn",
+        "teacherId": "tmqzgm6z6agefk",
+        "roomId": "rmqzgkgebabzhu",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhi5n6covkm",
+        "day": "wed",
+        "slot": "s3",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzglbkihi72g"
+        ],
+        "roomIds": [
+          "rmqzgkgebabzhu"
+        ],
+        "subjectIds": [
+          "smqzghzs20e2v6"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzghzs20e2v6",
+        "teacherId": "tmqzglbkihi72g",
+        "roomId": "rmqzgkgebabzhu",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhigfmad0x1",
+        "day": "thu",
+        "slot": "s1",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgo72iw7ts2"
+        ],
+        "roomIds": [
+          "rmqzgkgebabzhu"
+        ],
+        "subjectIds": [
+          "smqzgiw42ucano"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgiw42ucano",
+        "teacherId": "tmqzgo72iw7ts2",
+        "roomId": "rmqzgkgebabzhu",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhipwxqkp87",
+        "day": "thu",
+        "slot": "s2",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzglbkihi72g"
+        ],
+        "roomIds": [
+          "rmqzgkgebabzhu"
+        ],
+        "subjectIds": [
+          "smqzghzs20e2v6"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzghzs20e2v6",
+        "teacherId": "tmqzglbkihi72g",
+        "roomId": "rmqzgkgebabzhu",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhj30x1tt00",
+        "day": "thu",
+        "slot": "s3",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgm6z6agefk"
+        ],
+        "roomIds": [
+          "rmqzgkkoisn9xt"
+        ],
+        "subjectIds": [
+          "smqzgho3u160mn"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgho3u160mn",
+        "teacherId": "tmqzgm6z6agefk",
+        "roomId": "rmqzgkkoisn9xt",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhjrptncs9x",
+        "day": "thu",
+        "slot": "s4",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgmxxmtrc2s"
+        ],
+        "roomIds": [
+          "rmqzgkgebabzhu"
+        ],
+        "subjectIds": [
+          "smqzgjdwqbe1ig"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgjdwqbe1ig",
+        "teacherId": "tmqzgmxxmtrc2s",
+        "roomId": "rmqzgkgebabzhu",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhke3ufloyb",
+        "day": "fri",
+        "slot": "s1",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgmxxmtrc2s"
+        ],
+        "roomIds": [
+          "rmqzgkrkac6v9n"
+        ],
+        "subjectIds": [
+          "smqzgjdwqbe1ig"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgjdwqbe1ig",
+        "teacherId": "tmqzgmxxmtrc2s",
+        "roomId": "rmqzgkrkac6v9n",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhku1ehy637",
+        "day": "fri",
+        "slot": "s2",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzglbkihi72g"
+        ],
+        "roomIds": [
+          "rmqzgkkoisn9xt"
+        ],
+        "subjectIds": [
+          "smqzghzs20e2v6"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzghzs20e2v6",
+        "teacherId": "tmqzglbkihi72g",
+        "roomId": "rmqzgkkoisn9xt",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhl2gahc127",
+        "day": "fri",
+        "slot": "s3",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgm6z6agefk"
+        ],
+        "roomIds": [
+          "rmqzgkkoisn9xt"
+        ],
+        "subjectIds": [
+          "smqzgho3u160mn"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgho3u160mn",
+        "teacherId": "tmqzgm6z6agefk",
+        "roomId": "rmqzgkkoisn9xt",
+        "type": "normal",
+        "note": ""
+      },
+      {
+        "id": "lmqzhld9u5wa8c",
+        "day": "fri",
+        "slot": "s4",
+        "groupIds": [
+          "gmqzgocj72hs2f"
+        ],
+        "teacherIds": [
+          "tmqzgmxxmtrc2s"
+        ],
+        "roomIds": [
+          "rmqzgko167akm6"
+        ],
+        "subjectIds": [
+          "smqzgjdwqbe1ig"
+        ],
+        "groupId": "gmqzgocj72hs2f",
+        "subjectId": "smqzgjdwqbe1ig",
+        "teacherId": "tmqzgmxxmtrc2s",
+        "roomId": "rmqzgko167akm6",
+        "type": "classhour",
+        "note": ""
+      }
+    ],
+    "autoOptions": {
+      "maxPerDay": 6,
+      "clearBeforeGenerate": true,
+      "juniorEarly": true
+    },
+    "autoRules": [],
+    "schoolId": "schoolmqzg7ri1id5wl"
+  }
+}
